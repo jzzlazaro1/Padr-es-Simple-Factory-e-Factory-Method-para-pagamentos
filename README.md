@@ -1,1 +1,1 @@
-# Padr-es-Simple-Factory-e-Factory-Method-para-pagamentos
+# Padrões-Simple-Factory-e-Factory-Method-para-pagamentos
