@@ -32,9 +32,9 @@ Python
 
 from abc import ABC, abstractmethod
 
-# =================================================================
+# ________________________________
 # I. Padrão Strategy: Pagamento
-# =================================================================
+# ________________________________
 
 class Pagamento(ABC):
     @abstractmethod
@@ -53,9 +53,9 @@ class PagamentoPix(Pagamento):
     def processarPagamento(self, valor: float) -> str:
         return f"Pagamento de R${valor:.2f} realizado com Pix."
 
-# =================================================================
+# _________________________________
 # II. Padrão Strategy: Notificação
-# =================================================================
+# _________________________________
 
 class Notificacao(ABC):
     @abstractmethod
@@ -74,10 +74,10 @@ class NotificacaoWhatsApp(Notificacao):
     def enviar(self, destino: str, mensagem: str) -> str:
         return f"Mensagem de WhatsApp enviada para {destino} com a mensagem: '{mensagem}'."
 
-# =================================================================
+# _______________________________________________________
 # III. Padrão Abstract Factory: FÁBRICAS DE NOTIFICAÇÃO
 # (Aplicando o padrão Factory Method para Notificação)
-# =================================================================
+# _______________________________________________________
 
 class NotificacaoFactory(ABC):
     @abstractmethod
@@ -97,10 +97,10 @@ class WhatsAppNotificacaoFactory(NotificacaoFactory):
         return NotificacaoWhatsApp()
 
 
-# =================================================================
+# _______________________________________________________________
 # IV. Padrão Abstract Factory: FÁBRICAS DE PAGAMENTO
 # (Aplicando o padrão Abstract Factory para a família Pagamento)
-# =================================================================
+# _______________________________________________________________
 
 class PagamentoFactory(ABC):
     @abstractmethod
@@ -123,9 +123,9 @@ class FactoryPagamentoOffline(PagamentoFactory):
         else:
             raise ValueError(f"Tipo de pagamento offline não suportado: {tipo_pagamento}")
 
-# =================================================================
+# ___________________________________________________
 # V. Demonstrações do Cliente
-# =================================================================
+# ___________________________________________________
 
 def demonstracao_notificacao():
     print('\n--- Demonstração: Fábricas de Notificação ---')
@@ -173,18 +173,22 @@ if __name__ == "__main__":
 
 O projeto é um único arquivo Python e requer apenas o interpretador Python instalado.
 
-Pré-requisitos
-Python 3.x
+Pré-requisitos:
 
-Passos
-Salve o código acima em um arquivo chamado design_patterns_demo.py.
+-> Python 3.x
+
+Passos:
+
+-> Salve o código acima em um arquivo chamado design_patterns_demo.py.
 
 Execute o arquivo a partir do seu terminal:
 
-Bash
+-> Bash
 
-python design_patterns_demo.py
-Saída Esperada
+-> python design_patterns_demo.py
+
+Saída Esperada:
+
 --- Demonstração: Fábricas de Notificação ---
 E-mail enviado para cliente@exemplo.com com a mensagem: 'Sua fatura mensal está disponível.'.
 SMS enviado para +559988776655 com a mensagem: 'Seu pedido foi despachado!'.
@@ -194,6 +198,12 @@ Mensagem de WhatsApp enviada para +5511999998888 com a mensagem: 'Promoção exc
 Pagamento de R$100.00 realizado com cartão de crédito.
 Pagamento de R$100.00 realizado com Pix.
 Pagamento de R$50.50 realizado com boleto bancário.
+
+📧 **Contato**
+
+João Lázaro Brito - joaolazarobritoeps@gmail.com
+
+
 
 
 
