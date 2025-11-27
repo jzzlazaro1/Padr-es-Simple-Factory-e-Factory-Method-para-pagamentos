@@ -2,13 +2,28 @@
 
 Factory Method e Fábricas de PagamentoEste repositório em Python demonstra o uso de Padrões de Criação para gerenciar a instancialização de objetos em dois domínios distintos: Processamento de Pagamentos e Serviços de Notificação.
 
-🚀 **Padrões Demonstrados Padrão DomínioConceito Principal Factory Method Notificações**
+🚀 **Padrões Demonstrados**
 
-Delega a responsabilidade de criação para subclasses.Fábrica Simples/AgrupadaPagamentosCentraliza a lógica de criação de produtos relacionados (Online vs. Offline) em classes especializadas.
+Padrão,Domínio,Conceito Principal
+Factory Method,Notificações,Delega a responsabilidade de criação para subclasses.
+Fábrica Simples/Agrupada,Pagamentos,Centraliza a lógica de criação de produtos relacionados (Online vs. Offline) em classes especializadas.
 
 💳**1. Padrão de Pagamento:**
 
-Fábricas Agrupadas (FactoryPagamentoOnline, FactoryPagamentoOffline)Este domínio demonstra uma abordagem para agrupar produtos relacionados (Pagamentos) em fábricas específicas. Embora a classe base PagamentoFactory defina um método de criação que se assemelha ao Factory Method, as implementações concretas (FactoryPagamentoOnline, FactoryPagamentoOffline) contêm lógica condicional que as torna uma variação do Simple Factory dentro de uma hierarquia de fábricas, o que é uma técnica comum que lembra o padrão Abstract Factory.Estrutura de PagamentosProduto Abstrato: Pagamento (com o método processarPagamento).
+Fábricas Agrupadas (FactoryPagamentoOnline, FactoryPagamentoOffline)
+
+Este domínio demonstra uma abordagem para agrupar produtos relacionados (Pagamentos) em fábricas específicas. Embora a classe base PagamentoFactory defina um método de criação que se assemelha ao Factory Method, as implementações concretas (FactoryPagamentoOnline, FactoryPagamentoOffline) contêm lógica condicional que as torna uma variação do Simple Factory dentro de uma hierarquia de fábricas, o que é uma técnica comum que lembra o padrão Abstract Factory.Estrutura de PagamentosProduto Abstrato: Pagamento (com o método processarPagamento).
+
+Estrutura de Pagamentos
+Produto Abstrato: Pagamento (com o método processarPagamento).
+
+Produtos Concretos: PagamentoCartao, PagamentoBoleto, PagamentoPix.
+
+Fábricas Concretas:
+
+FactoryPagamentoOnline: Cria PagamentoCartao ou PagamentoPix.
+
+FactoryPagamentoOffline: Cria PagamentoBoleto.
 
 Produtos Concretos: PagamentoCartao, PagamentoBoleto, PagamentoPix.
 Fábricas Concretas: FactoryPagamentoOnline: 
@@ -31,7 +46,7 @@ print(f"Pagamento Offline (Boleto): {pagamento_boleto.processarPagamento(50.50)}
 
 Factory MethodNo domínio de notificações, o padrão Factory Method é estritamente aplicado. Em vez de uma única classe de fábrica com if/else, existe uma hierarquia de fábricas, onde cada fábrica concreta é responsável por criar apenas um tipo de notificação.ShutterstockExplorarEstrutura de NotificaçãoProduto Abstrato: Notificacao (com o método enviar).
 
-Produtos Concretos: NotificacaoEmail, NotificacaoSMS, NotificacaoWhatsApp.Fábricas Concretas:EmailNotificacaoFactory:
+Produtos Concretos: NotificacaoEmail, NotificacaoSMS, NotificacaoWhatsApp.Fábricas Concretas: EmailNotificacaoFactory:
 
 Cria NotificacaoEmail.SMSNotificacaoFactory: Cria NotificacaoSMS.WhatsAppNotificacaoFactory: Cria NotificacaoWhatsApp.Vantagem Principal (OCP)Este padrão segue o Princípio Aberto/Fechado (OCP). Para adicionar uma nova forma de notificação (ex: NotificacaoPush), basta criar a classe NotificacaoPush e sua fábrica correspondente, sem modificar as classes de fábrica existentes.
 
